@@ -1,0 +1,6 @@
+framework module Pods_CodeChallangeTests {
+  umbrella header "Pods-CodeChallangeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
