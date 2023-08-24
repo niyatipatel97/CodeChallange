@@ -31,7 +31,7 @@ class User: NSObject {
     - Parameter : userID
     - Returns: flag True or False.
     */
-    class func LoginApi(withUserId userId: String, success withResponse: @escaping (_ user: User) -> (), failure: @escaping FailureBlock) {
+    class func LoginApi(withUserId userId: Int, success withResponse: @escaping (_ user: User) -> (), failure: @escaping FailureBlock) {
         
         SVProgressHUD.show()
         
@@ -46,14 +46,14 @@ class User: NSObject {
                 withResponse(obj)
             }
             else {
-                failure(LocalizableKeys.NoDataLabelText.kNoUserFound, .response)
+                failure(LocalizableKeys.NoDataLabelText.kNoUserFound)
             }
         }, failure: { (error) in
             SVProgressHUD.dismiss()
-            failure(error, .server)
+            failure(error)
         }, connectionFailed: { (connectionError) in
             SVProgressHUD.dismiss()
-            failure(connectionError, .connection)
+            failure(connectionError)
         })
     }
 }

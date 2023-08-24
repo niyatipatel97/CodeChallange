@@ -38,10 +38,10 @@ class Post: NSObject {
     - Parameter : userID
     - Returns: array of Post Model.
     */
-    class func GetPostList(success withResponse: @escaping (_ posts: [Post]) -> (), failure: @escaping FailureBlock) {
+    class func GetPostList(userId: Int = UserDefaults.standard.integer(forKey: kuserId), success withResponse: @escaping (_ posts: [Post]) -> (), failure: @escaping FailureBlock) {
         
         SVProgressHUD.show()
-        let userId = UserDefaults.standard.integer(forKey: kuserId)
+        
         let requestURL = String(format: Constant.API.kGetPostsByUser, userId)
         APIManager.makeRequest(with: requestURL, method: .get, parameter: nil, success: {(response) in
             SVProgressHUD.dismiss()
@@ -52,14 +52,14 @@ class Post: NSObject {
                 withResponse(arr)
             }
             else {
-                failure(LocalizableKeys.NoDataLabelText.kNoPostsFound, .response)
+                failure(LocalizableKeys.NoDataLabelText.kNoPostsFound)
             }
         }, failure: { (error) in
             SVProgressHUD.dismiss()
-            failure(error, .server)
+            failure(error)
         }, connectionFailed: { (connectionError) in
             SVProgressHUD.dismiss()
-            failure(connectionError, .connection)
+            failure(connectionError)
         })
     }
     
@@ -81,19 +81,20 @@ class Post: NSObject {
         APIManager.makeRequest(with: requestURL, method: .put, parameter: param, success: {(response) in
             SVProgressHUD.dismiss()
 
-            if let _ = response as? [String:Any] {
+            let obj = response as? [String:Any] ?? [:]
+            if !obj.isEmpty {
 
                 withResponse(true)
             }
             else {
-                failure(LocalizableKeys.NoDataLabelText.kNotAddedToFavourite, .response)
+                failure(LocalizableKeys.NoDataLabelText.kNotAddedToFavourite)
             }
         }, failure: { (error) in
             SVProgressHUD.dismiss()
-            failure(error, .server)
+            failure(error)
         }, connectionFailed: { (connectionError) in
             SVProgressHUD.dismiss()
-            failure(connectionError, .connection)
+            failure(connectionError)
         })
     }
     
@@ -103,10 +104,9 @@ class Post: NSObject {
     - Parameter : userID, isFavourite
     - Returns: array of Post Model.
     */
-    class func GetFavPostList(success withResponse: @escaping (_ posts: [Post]) -> (), failure: @escaping FailureBlock) {
+    class func GetFavPostList(userId: Int = UserDefaults.standard.integer(forKey: kuserId), success withResponse: @escaping (_ posts: [Post]) -> (), failure: @escaping FailureBlock) {
         
         SVProgressHUD.show()
-        let userId = UserDefaults.standard.integer(forKey: kuserId)
         let requestURL = String(format: Constant.API.kGetFavouritePost, userId, 1)
         APIManager.makeRequest(with: requestURL, method: .get, parameter: nil, success: {(response) in
             SVProgressHUD.dismiss()
@@ -117,14 +117,14 @@ class Post: NSObject {
                 withResponse(arr)
             }
             else {
-                failure(LocalizableKeys.NoDataLabelText.kNoPostsFound, .response)
+                failure(LocalizableKeys.NoDataLabelText.kNoPostsFound)
             }
         }, failure: { (error) in
             SVProgressHUD.dismiss()
-            failure(error, .server)
+            failure(error)
         }, connectionFailed: { (connectionError) in
             SVProgressHUD.dismiss()
-            failure(connectionError, .connection)
+            failure(connectionError)
         })
     }
     

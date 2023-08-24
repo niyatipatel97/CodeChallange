@@ -47,14 +47,14 @@ class Comment: NSObject {
                 withResponse(arr)
             }
             else {
-                failure(LocalizableKeys.NoDataLabelText.kNoCommentsFound, .response)
+                failure(LocalizableKeys.NoDataLabelText.kNoCommentsFound)
             }
         }, failure: { (error) in
             SVProgressHUD.dismiss()
-            failure(error, .server)
+            failure(error)
         }, connectionFailed: { (connectionError) in
             SVProgressHUD.dismiss()
-            failure(connectionError, .connection)
+            failure(connectionError)
         })
     }
 }

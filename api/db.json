@@ -15,10 +15,10 @@
   ],
   "posts": [
     {
+      "title": "",
       "id": 1,
-      "title": "His mother had always taught him",
-      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
-      "userId": 2,
+      "userId": 0,
+      "body": "",
       "isFavourite": 0
     },
     {
@@ -85,11 +85,11 @@
       "isFavourite": 0
     },
     {
-      "id": 11,
-      "title": "It wasn't quite yet time to panic.",
-      "body": "It wasn't quite yet time to panic. There was still time to salvage the situation. At least that is what she was telling himself. The reality was that it was time to panic and there wasn't time to salvage the situation, but he continued to delude himself into believing there was.",
       "userId": 1,
-      "isFavourite": 0
+      "isFavourite": 0,
+      "body": "It wasn't quite yet time to panic. There was still time to salvage the situation. At least that is what she was telling himself. The reality was that it was time to panic and there wasn't time to salvage the situation, but he continued to delude himself into believing there was.",
+      "id": 11,
+      "title": "It wasn't quite yet time to panic."
     },
     {
       "id": 12,

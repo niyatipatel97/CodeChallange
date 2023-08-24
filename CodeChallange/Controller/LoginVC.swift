@@ -54,13 +54,23 @@ extension LoginVC {
      This method is used to validate user input.
      - Returns: Return boolean value to indicate input data is valid or not.
      */
-    func isValidUserInput() -> Bool {
+    func isValidUserInput(input: String?) -> Bool {
         
         
-        if let userid = self.txtUserId.text?.trimmingCharacters(in: .whitespacesAndNewlines), userid.isEmpty || !userid.isValidUserID() {
+        if let userid = input, userid.isEmpty || !userid.isValidUserID() {
             return false
         }
         return true
+    }
+    
+    /**
+     This method is used to fetch User Id From the TextField.
+     - Returns: Return String value of userid.
+     */
+    func fetchUserIdFromtheTextField() -> String? {
+        
+        
+        return self.txtUserId.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     func setDoneOnKeyboard() {
@@ -81,7 +91,7 @@ extension LoginVC {
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
        
-            self.lblError.isHidden = self.isValidUserInput()
+        self.lblError.isHidden = self.isValidUserInput(input: self.fetchUserIdFromtheTextField())
     }
 
 }
@@ -94,12 +104,12 @@ fileprivate extension LoginVC
     
     @IBAction func btnSignin_Clicked(_ sender: Any) {
         self.view.endEditing(true)
-        guard self.isValidUserInput() else {
+        guard self.isValidUserInput(input: self.fetchUserIdFromtheTextField()) else {
             self.lblError.isHidden = false
             return
         }
         
-        if let userid = self.txtUserId.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+        if let useridStr = self.txtUserId.text?.trimmingCharacters(in: .whitespacesAndNewlines), let userid = Int(useridStr) {
             self.LoginApiCall(userId: userid)
         }
     }
@@ -113,13 +123,13 @@ extension LoginVC {
     /**
      Api call for Login using userid.
      */
-    func LoginApiCall(userId: String) {
+    func LoginApiCall(userId: Int) {
         User.LoginApi(withUserId: userId) { user in
             
             self.lblError.isHidden = true
             UserDefaults.standard.set(user.userId, forKey: kuserId)
             appDelegate.SetupRootScreen()
-        } failure: { error, customError in
+        } failure: { error in
             if !error.isEmpty {
                 self.showAlert(with: error.debugDescription)
             }

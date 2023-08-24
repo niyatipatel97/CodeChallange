@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-typealias FailureBlock = (_ error: String, _ customError: ErrorType) -> Void
+typealias FailureBlock = (_ error: String) -> Void
 
 
 //Error enum
-enum ErrorType: String {
-    case server = "Error"
-    case connection = "No connection"
-    case response = ""
-}
+//enum ErrorType {
+//    case server
+//    case connection
+//    case response
+//}
 
 //MARK: appDelegate
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -44,7 +44,7 @@ class Constant : NSObject {
         static let kGetPostsByUser        = BASE_URL + "posts?userId=%d"
         static let kEditPostsById         = BASE_URL + "posts/%d"
         static let kComments              = BASE_URL + "comments?postId=%d"
-        static let kUsers                 = BASE_URL + "users?userId=%@"
+        static let kUsers                 = BASE_URL + "users?userId=%d"
         static let kGetFavouritePost      = BASE_URL + "posts?userId=%d&isFavourite=%d"
     }
 }

@@ -143,9 +143,9 @@ extension FavouritePostVC {
             self.arrFavPosts = posts
             self.tvFavPosts.reloadData()
             self.tvFavPosts.es.stopPullToRefresh(ignoreDate: false, ignoreFooter: false)
-        } failure: { error, customError in
+        } failure: { error in
             if !error.isEmpty {
-                self.showAlert(withTitle: customError.rawValue, with: error)
+                self.showAlert(with: error.debugDescription)
             }
             self.tvFavPosts.es.stopPullToRefresh(ignoreDate: false, ignoreFooter: false)
         }
@@ -162,9 +162,9 @@ extension FavouritePostVC {
             
             
             self.tvFavPosts.reloadData()
-        } failure: { error, customError in
+        } failure: { error in
             if !error.isEmpty {
-                self.showAlert(withTitle: customError.rawValue, with: error)
+                self.showAlert(with: error.debugDescription)
             }
         }
 

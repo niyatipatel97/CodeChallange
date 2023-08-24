@@ -168,9 +168,9 @@ extension CommentsVC {
             self.arrComments = comments
             self.tvComments.reloadData()
             self.tvComments.es.stopPullToRefresh(ignoreDate: false, ignoreFooter: false)
-        } failure: { error, customError in
+        } failure: { error in
             if !error.isEmpty {
-                self.showAlert(withTitle: customError.rawValue, with: error)
+                self.showAlert(with: error.debugDescription)
             }
             self.tvComments.es.stopPullToRefresh(ignoreDate: false, ignoreFooter: false)
         }
@@ -188,9 +188,9 @@ extension CommentsVC {
         Post.editFavUnfavPost(wihtObjPost: obj) { isSuccess in
             print("Successfully EDITED to Fav or Unfav.")
             
-        } failure: { error, customError in
+        } failure: { error in
             if !error.isEmpty {
-                self.showAlert(withTitle: customError.rawValue, with: error)
+                self.showAlert(with: error.debugDescription)
             }
         }
 

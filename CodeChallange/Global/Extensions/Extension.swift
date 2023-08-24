@@ -17,7 +17,7 @@ extension String {
      - Returns: Return boolen value to indicate UserId is valid or not
      */
     func isValidUserID() -> Bool {
-        let regEx = "[1-9]"
+        let regEx = "^[0-9]{1,4}$"
         let userIdTest = NSPredicate(format:"SELF MATCHES %@", regEx)
         return userIdTest.evaluate(with: self)
     }
