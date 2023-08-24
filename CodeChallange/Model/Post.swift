@@ -14,7 +14,7 @@ let ktitle = "title"
 let kbody = "body"
 let kisFavourite = "isFavourite"
 
-class Post: NSObject {
+class Post: NSObject, Decodable {
     
     var postId: Int
     var title: String

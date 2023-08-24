@@ -10,10 +10,12 @@ import UIKit
 class LoginVC: UIViewController {
     
     //MARK: - IBOutlet
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblUserId: UILabel!
     @IBOutlet weak var lblError: UILabel!
     @IBOutlet weak var txtUserId: UITextField!
-    
+    @IBOutlet weak var btnLogIn: UIButton!
+    @IBOutlet weak var vwContainer: UIView!
     
     
     //MARK: - Lifecycle Methods
@@ -25,6 +27,10 @@ class LoginVC: UIViewController {
     }
 
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.decorateUI()
+    }
 }
 
 
@@ -36,8 +42,10 @@ extension LoginVC {
      This method is used to make initial configurations to controls.
      */
     func initialConfig() {
+        self.lblTitle.text = LocalizableKeys.Labels.kLogin
         self.lblUserId.text = LocalizableKeys.Labels.kUserID
         self.lblError.text = LocalizableKeys.Labels.kErrorUserId
+        self.btnLogIn.setTitle(LocalizableKeys.Labels.kLogin, for: .normal)
         
         self.setDoneOnKeyboard()
     }
@@ -47,7 +55,11 @@ extension LoginVC {
      */
     private func decorateUI() {
         
-        
+        self.btnLogIn.backgroundColor = UIColor.CustomColor.appColor
+        self.txtUserId.setCornerRadius(withBorder: 1.5, borderColor: UIColor.CustomColor.appColor, cornerRadius: UIHelperConstants.appButtonRadius)
+        self.btnLogIn.setCornerRadius(cornerRadius: UIHelperConstants.appButtonRadius)
+        self.vwContainer.setCornerRadius(withBorder: 1, borderColor: UIColor.lightText, cornerRadius: UIHelperConstants.appButtonRadius)
+        self.vwContainer.setShadow()
     }
     
     /**
@@ -131,7 +143,7 @@ extension LoginVC {
             appDelegate.SetupRootScreen()
         } failure: { error in
             if !error.isEmpty {
-                self.showAlert(with: error.debugDescription)
+                self.showAlert(with: error)
             }
         }
     }

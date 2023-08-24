@@ -105,6 +105,7 @@ extension FavouritePostVC: BtnFavTappedDelegate {
     }
     
     func postAddedToUnfav(index: Int) {
+        
         if index <= (self.arrFavPosts.count-1) {
             
             self.arrFavPosts[index].isFavourite = false

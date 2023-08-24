@@ -137,6 +137,7 @@ extension CommentsVC: BtnFavTappedDelegate {
     }
 
     func postAddedToUnfav(index: Int) {
+        
         self.objPost?.0.isFavourite = false
         if let index = self.objPost?.1 {
             self.btnFavTappedDelegate?.postAddedToUnfav(index: index)

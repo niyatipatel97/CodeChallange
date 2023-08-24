@@ -154,6 +154,7 @@ extension MyPostVC: BtnFavTappedDelegate {
     }
     
     func postAddedToUnfav(index: Int) {
+        
         if index <= (self.arrPosts.count-1) {
             self.arrPosts[index].isFavourite = false
             let indexPath = IndexPath(row: index, section: 0)

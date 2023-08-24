@@ -28,7 +28,6 @@
 		314C89852A9380FB0074EA34 /* PostHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314C89842A9380FB0074EA34 /* PostHeaderCell.xib */; };
 		314C89882A93920A0074EA34 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C89872A93920A0074EA34 /* APIManager.swift */; };
 		314C898A2A94BB850074EA34 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C89892A94BB850074EA34 /* Post.swift */; };
-		314C89912A94D1990074EA34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 314C89902A94D1990074EA34 /* GoogleService-Info.plist */; };
 		314C89942A94E6D10074EA34 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C89932A94E6D10074EA34 /* Comment.swift */; };
 		314C89962A94E7460074EA34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C89952A94E7460074EA34 /* User.swift */; };
 		314C89982A96577B0074EA34 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C89972A96577B0074EA34 /* TabbarVC.swift */; };
@@ -87,7 +86,6 @@
 		314C89872A93920A0074EA34 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		314C89892A94BB850074EA34 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		314C898C2A94C03C0074EA34 /* CodeChallange-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodeChallange-Bridging-Header.h"; sourceTree = "<group>"; };
-		314C89902A94D1990074EA34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		314C89932A94E6D10074EA34 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		314C89952A94E7460074EA34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		314C89972A96577B0074EA34 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				314C898B2A94C0120074EA34 /* Bridging-Header */,
-				314C898F2A94D17B0074EA34 /* Support */,
 				314C89862A9391EE0074EA34 /* Utilities */,
 				314C89682A9358250074EA34 /* Global */,
 				314C89622A9276010074EA34 /* CustomView */,
@@ -310,14 +307,6 @@
 			path = "Bridging-Header";
 			sourceTree = "<group>";
 		};
-		314C898F2A94D17B0074EA34 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				314C89902A94D1990074EA34 /* GoogleService-Info.plist */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
 		7A216E6656AF703F171291E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,7 +342,6 @@
 				314C89282A92711A0074EA34 /* Frameworks */,
 				314C89292A92711A0074EA34 /* Resources */,
 				65DF4992ED13F88870537A66 /* [CP] Embed Pods Frameworks */,
-				314C89922A94D1B60074EA34 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -458,7 +446,6 @@
 				314C89382A92711B0074EA34 /* Assets.xcassets in Resources */,
 				314C89672A9276480074EA34 /* PostCell.xib in Resources */,
 				314C89362A92711A0074EA34 /* Main.storyboard in Resources */,
-				314C89912A94D1990074EA34 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,23 +487,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		314C89922A94D1B60074EA34 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		65DF4992ED13F88870537A66 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

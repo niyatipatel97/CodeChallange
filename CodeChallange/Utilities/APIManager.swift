@@ -73,20 +73,8 @@ class APIManager: NSObject {
             if let param = parameter, let data = try? JSONSerialization.data(withJSONObject: param, options: .prettyPrinted) {
                 print(String(data: data, encoding: .utf8) ?? "Nil Param")
             }
-//            var headers: HTTPHeaders = []
-//            headers["Content-Type"] = "application/json"
-//
-//            if !isGuestUser, let currentUser = User.getCurrentUserFromDefault() {
-//                headers[kAuthToken] = currentUser.authToken
-//                print("Header = [\(kAuthToken) : \(currentUser.authToken)]")
-//            }
-            
-//            AF.request(url, method: method, parameters: parameter, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            
-//            AF.request(url, method: method, parameters: parameter, encoding: JSONEncoding.default, headers: nil).responseDecodable { (response) in
                 
             AF.request(url, method: method, parameters: parameter, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { response in
-                
                 
                 
                 switch (response.result) {

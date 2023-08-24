@@ -32,9 +32,18 @@ class Constant : NSObject {
         static let kCommentCell     = "CommentCell"
     }
     
+    // MARK: - Storyboard Identifier constant
+    struct StoryboardIdentifier {
+        static let kMain            = "Main"
+        
+    }
+    
     // MARK: - VC Identifier constant
     struct VCIdentifier {
         static let kCommentsVC      = "CommentsVC"
+        static let kTabbarVC        = "TabbarVC"
+        static let kLoginVC         = "LoginVC"
+        
     }
     
     struct API {
@@ -89,5 +98,6 @@ extension UIColor {
     struct CustomColor {
         
         static let postCellBorder    = UIColor(named: "cl_postCellBorder") ?? .gray
+        static let appColor          = UIColor(named: "cl_appColor") ?? .blue
     }
 }

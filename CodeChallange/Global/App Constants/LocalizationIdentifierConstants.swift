@@ -15,8 +15,9 @@ struct LocalizableKeys {
     struct Labels {
         
         //Authentication
-        static let kUserID                          = "UserID"
-        static let kErrorUserId                     = "Please enter valid UserId"
+        static let kLogin                           = "LOGIN"
+        static let kUserID                          = "User ID"
+        static let kErrorUserId                     = "Please enter valid User ID"
         
         //Dashboard
     }
@@ -45,9 +46,6 @@ struct LocalizableKeys {
         //Alert Buttons
         static let kOK                              = "OK"
         static let kCANCEL                          = "CANCEL"
-        
-        //Authentication
-        static let kLogin                           = "LOGIN"
      }
     
     //MARK: - ValidationMessages

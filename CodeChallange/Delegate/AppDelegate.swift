@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import SVProgressHUD
 
 @main
@@ -16,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //Firebase
-        FirebaseApp.configure()
         
         //SVProgressHUD
         self.setSVProgressHUDconfiguration()
@@ -73,7 +70,7 @@ extension AppDelegate {
             appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         }
         
-        if let tabbarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarVC") as? TabbarVC {
+        if let tabbarVC = UIStoryboard(name: Constant.StoryboardIdentifier.kMain, bundle: nil).instantiateViewController(withIdentifier: Constant.VCIdentifier.kTabbarVC) as? TabbarVC {
             appDelegate.window?.rootViewController = tabbarVC
             appDelegate.window?.makeKeyAndVisible()
         }
@@ -88,7 +85,7 @@ extension AppDelegate {
             appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         }
         
-        if let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
+        if let loginVC = UIStoryboard(name: Constant.StoryboardIdentifier.kMain, bundle: nil).instantiateViewController(withIdentifier: Constant.VCIdentifier.kLoginVC) as? LoginVC {
             appDelegate.window?.rootViewController = loginVC
             appDelegate.window?.makeKeyAndVisible()
         }
