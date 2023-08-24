@@ -134,6 +134,9 @@ extension FavouritePostVC: BtnFavTappedDelegate {
 //MARK: API Call
 extension FavouritePostVC {
     
+    /**
+     Api call to get all Favourite Posts of loggedin User.
+     */
     func getFavPostsApi() {
         Post.GetFavPostList { posts in
             
@@ -149,7 +152,9 @@ extension FavouritePostVC {
 
     }
     
-    
+    /**
+     Api call edit post to fav and unfav post.
+     */
     func editPostAsFavOrUnfav(obj: Post, index: Int) {
         Post.editFavUnfavPost(wihtObjPost: obj) { isSuccess in
             print("Successfully EDITED to Fav or Unfav.")

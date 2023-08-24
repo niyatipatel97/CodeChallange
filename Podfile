@@ -20,7 +20,7 @@ target 'CodeChallange' do
   end
 
 end
-#To set all the pods to minimum deployment target : 9.0, if any has set to lower then that.
+#To set all the pods to minimum deployment target : 11.0, if any has set to lower then that.
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|

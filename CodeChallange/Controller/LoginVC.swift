@@ -28,6 +28,7 @@ class LoginVC: UIViewController {
 }
 
 
+
 //MARK: UI Helpers
 extension LoginVC {
     
@@ -86,6 +87,7 @@ extension LoginVC {
 }
 
 
+
 // MARK: - IBAction Mthonthd
 fileprivate extension LoginVC
 {
@@ -104,9 +106,13 @@ fileprivate extension LoginVC
 }
 
 
+
 //MARK: API Call
 extension LoginVC {
     
+    /**
+     Api call for Login using userid.
+     */
     func LoginApiCall(userId: String) {
         User.LoginApi(withUserId: userId) { user in
             

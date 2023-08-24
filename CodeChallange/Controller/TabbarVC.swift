@@ -9,12 +9,10 @@ import UIKit
 
 class TabbarVC: UITabBarController {
 
+    
+    //MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
-    
-    
-
 }

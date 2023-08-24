@@ -95,14 +95,6 @@ class APIManager: NSObject {
                         print("Response: \n",String(data: jsonData, encoding: String.Encoding.utf8) ?? "nil")
                     }
                     
-                    //Session Expire
-//                    if let tokenexpire = response.response?.statusCode {
-//                        if tokenexpire == APIStatusCode.kSessionInvalid {
-//                            let msg = NonLocalizedValidationMessages.kSessionExpired
-//                            appInstance.apiManagerDelegate?.sessionInvalid(message: msg)
-//                            return
-//                        }
-//                    }
                     success(value)
                 case .failure(let error):
                     print(error.localizedDescription)

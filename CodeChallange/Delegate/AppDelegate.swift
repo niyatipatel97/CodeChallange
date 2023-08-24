@@ -45,7 +45,6 @@ extension AppDelegate {
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.custom)
         
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.custom)
-//        SVProgressHUD.setBackgroundLayerColor(UIColor.CustomColor.appBlackColor.withAlphaComponent(0.2))
         SVProgressHUD.setForegroundColor(UIColor.lightGray)
         SVProgressHUD.setBackgroundColor(UIColor.white)
         let size = DeviceType.IsDeviceIPad ?
@@ -56,7 +55,7 @@ extension AppDelegate {
     //MARK:- App Naviagtion Methods
     
     func SetupRootScreen() {
-        if let userid = UserDefaults.standard.object(forKey: kuserId) as? Int {
+        if let _ = UserDefaults.standard.object(forKey: kuserId) as? Int {
             
             self.setTabBarHomeAsRootViewController()
         }

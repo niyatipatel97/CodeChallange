@@ -46,10 +46,6 @@ class Constant : NSObject {
         static let kComments              = BASE_URL + "comments?postId=%d"
         static let kUsers                 = BASE_URL + "users?userId=%@"
         static let kGetFavouritePost      = BASE_URL + "posts?userId=%d&isFavourite=%d"
-        
-//        static let kAddFavouritePosts     = BASE_URL + "favouritePosts"
-//        static let kGetFavouritePosts     = BASE_URL + "favouritePosts?userId=%d"
-//        static let kRemoveFavouritePosts  = BASE_URL + "favouritePosts/%d"
     }
 }
 

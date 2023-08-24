@@ -17,7 +17,6 @@ class MyPostVC: UIViewController {
     @IBOutlet weak var tvMyPosts: UITableView!
     
     
-    
     //MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +125,7 @@ extension MyPostVC : UITableViewDelegate, UITableViewDataSource {
 }
 
 
+
 //MARK: BtnFavTappedDelegate Methods
 extension MyPostVC: BtnFavTappedDelegate {
     func postAddedToFav(index: Int) {
@@ -135,7 +135,7 @@ extension MyPostVC: BtnFavTappedDelegate {
             let indexPath = IndexPath(row: index, section: 0)
             self.tvMyPosts.reloadRows(at: [indexPath], with: .automatic)
             
-            //Add to Favourite post screen Manually
+            //Add object to FavouritePosts screen
             if let vc = self.tabBarController?.viewControllers?.last as? UINavigationController {
                 if let vc2 = vc.viewControllers.first as? FavouritePostVC {
                     vc2.arrFavPosts.append(self.arrPosts[index])
@@ -159,7 +159,7 @@ extension MyPostVC: BtnFavTappedDelegate {
             let indexPath = IndexPath(row: index, section: 0)
             self.tvMyPosts.reloadRows(at: [indexPath], with: .automatic)
             
-            //Add to Favourite post screen Manually
+            //Remove Object from FavouritePosts screen Manually
             if let vc = self.tabBarController?.viewControllers?.last as? UINavigationController {
                 if let vc2 = vc.viewControllers.first as? FavouritePostVC {
                     if vc2.arrFavPosts.contains(where: { $0.postId == self.arrPosts[index].postId }) {
@@ -183,7 +183,9 @@ extension MyPostVC: BtnFavTappedDelegate {
 //MARK: API Call
 extension MyPostVC {
     
-    
+    /**
+     Api call to get all My Post data of loggedin User.
+     */
     func getMyPostsApi() {
         Post.GetPostList { posts in
             
@@ -199,6 +201,9 @@ extension MyPostVC {
 
     }
     
+    /**
+     Api call edit post to fav and unfav post.
+     */
     func editPostAsFavOrUnfav(obj: Post) {
         Post.editFavUnfavPost(wihtObjPost: obj) { isSuccess in
             print("Successfully EDITED to Fav or Unfav.")

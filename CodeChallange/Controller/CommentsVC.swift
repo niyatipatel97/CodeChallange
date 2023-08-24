@@ -152,7 +152,9 @@ extension CommentsVC: BtnFavTappedDelegate {
 //MARK: API Call
 extension CommentsVC {
     
-    
+    /**
+     Api call to get all Comments on a specifict Post.
+     */
     func getCommentsApi() {
         
         guard let postid = self.objPost?.0.postId else {
@@ -174,6 +176,10 @@ extension CommentsVC {
         }
     }
     
+    
+    /**
+     Api call edit post to fav and unfav post.
+     */
     func editPostAsFavOrUnfav(obj: Post?) {
         
         guard let obj = obj else {
@@ -181,8 +187,6 @@ extension CommentsVC {
         }
         Post.editFavUnfavPost(wihtObjPost: obj) { isSuccess in
             print("Successfully EDITED to Fav or Unfav.")
-            
-            
             
         } failure: { error, customError in
             if !error.isEmpty {
